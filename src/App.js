@@ -1,20 +1,22 @@
+import React from "react";
+import { useGlobalContext } from "./Context/Context";
+
+import Navbar from "./Navbar/Navbar";
+
 function App() {
+  const { loading } = useGlobalContext();
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <h1>Loading Ankush's Cart</h1>
+      </div>
+    );
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Navbar />
+    </main>
   );
 }
 
