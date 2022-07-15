@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     id: 1,
     title: "Samsung Galaxy S10",
@@ -21,3 +21,5 @@ export default [
     amount: 1,
   },
 ];
+
+export default data;
