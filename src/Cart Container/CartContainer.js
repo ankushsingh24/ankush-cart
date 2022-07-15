@@ -3,40 +3,41 @@ import CartItem from "../Cart Item/CartItem";
 import { useGlobalContext } from "../Context/Context";
 
 const CartContainer = () => {
-  const { cart, total, clearcart } = useGlobalContext();
+  const { cart, total, clearCart } = useGlobalContext();
   if (cart.length === 0) {
     return (
-      <div className="cart">
+      <section className="cart">
+        {/* cart header */}
         <header>
-          <h2>Your Cart</h2>
+          <h2>your bag</h2>
           <h4 className="empty-cart">is currently empty</h4>
         </header>
-      </div>
+      </section>
     );
   }
 
   return (
     <section className="cart">
+      {/* cart header */}
       <header>
-        <h2>Your Cart</h2>
+        <h2>your bag</h2>
       </header>
-
+      {/* cart items */}
       <div>
         {cart.map((item) => {
           return <CartItem key={item.id} {...item} />;
         })}
       </div>
-
+      {/* cart footer */}
       <footer>
         <hr />
         <div className="cart-total">
           <h4>
-            total <span> &{total}</span>
+            total <span>${total}</span>
           </h4>
         </div>
-
-        <button className="btn clear-btn" onClick={clearcart}>
-          clear Cart
+        <button className="btn clear-btn" onClick={clearCart}>
+          clear cart
         </button>
       </footer>
     </section>
